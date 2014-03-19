@@ -71,19 +71,29 @@ Process:
   Successful user registration
   
   {
+  
     "tag": "register",
+    
     "success": 1,
+    
     "error": 0,
+    
     "uid": "4f074ca1e3df49.06340261",
+    
     "user": {
+    
         "name": "admin",
+        
         "email": "PromenadeVT@gmail.com"
+        
     }
+    
 }
 
 Error: error in storing
 
 {
+
     "tag": "register",
     "success": 0,
     "error": 1,
@@ -93,14 +103,17 @@ Error: error in storing
 Error: user already exists
 
 {
+
     "tag": "register",
     "success": 0,
     "error": 2,
     "error_msg": "User already existed"
+
 }
 
 Success: user logged in
 {
+
     "tag": "login",
     "success": 1,
     "error": 0,
@@ -109,4 +122,5 @@ Success: user logged in
         "name": "admin",
         "email": "PromenadeVT@gmail.com"
     }
+
 }
