@@ -23,11 +23,11 @@ class DB_Functions {
      *  Returns true or false
      *  TODO: hash passwords, salt passwords
      */
-    public function getPass($user){
+    /*public function getPass($user){
         $result = mysql_query("SELECT password FROM User WHERE username = '$user'");
         if($result)return mysql_fetch_array($result);
         else return false;
-    }
+    }*/
  
     /**
      * DO NOT USE YET
