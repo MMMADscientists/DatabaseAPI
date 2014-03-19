@@ -40,7 +40,6 @@ Process:
       
       
   Register:
-  
     "tag" = "register"
     
     requirements:
@@ -70,22 +69,15 @@ Process:
   
   Successful user registration
   
-  {
-  
+{
+
     "tag": "register",
-    
     "success": 1,
-    
     "error": 0,
-    
     "uid": "4f074ca1e3df49.06340261",
-    
     "user": {
-    
         "name": "admin",
-        
         "email": "PromenadeVT@gmail.com"
-        
     }
     
 }
