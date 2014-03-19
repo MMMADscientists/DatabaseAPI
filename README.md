@@ -26,9 +26,13 @@ note: all items in < > are provided by you.
 Process:
   Login: 
     "tag" = "login"
+    
     requirements:
-      "username" = <username>
-      "password" = <password>
+    
+      "username" = < username >
+      
+      "password" = < password >
+      
       
   Register:
     "tag" = "register"
