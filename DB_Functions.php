@@ -89,6 +89,19 @@ class DB_Functions {
             return false;
         }
     }
+    
+    public function getHouseData($name){
+        $result = mysql_query("SELECT * FROM Property WHERE username = '$name'");
+        $no_of_rows = mysql_num_rows($result);
+        if*(no_of_rows > 0){
+             //user has houses
+             return $result;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
  
     /**
      * Encrypting password
