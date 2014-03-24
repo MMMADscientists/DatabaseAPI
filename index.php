@@ -76,7 +76,22 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
                 echo json_encode($response);
             }
         }
-    } else {
+    }else if ($tag == "houses"){
+         //find houses given username
+         $name = $_POST["name"];
+         $tuples = $db->getHouseData($name);
+         if($username){
+             $response["success"] = 1;
+             $response["tuples"] = $tuples;
+             echo json_encode($response);
+         }else{
+             $response["error"] = 1;
+             $response["error_code"] = 0;
+             $response["error_msg"] = "No data found";
+             echo json_encode($response);
+         }
+    
+    }else {
         echo "Invalid Request";
     }
 } else {
