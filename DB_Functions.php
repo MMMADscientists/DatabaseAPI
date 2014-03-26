@@ -11,6 +11,9 @@ class DB_Functions {
         if ($this -> mysql->connect_errno) {
             echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
+        else{
+            echo "Connected to MySQL" . PHP_EOL;
+        }
         /*try{
         require_once 'DB_Connect.php';
         // connecting to database
@@ -55,12 +58,12 @@ class DB_Functions {
      * Get user by email and password
      */
     public function getUserByEmailAndPassword($email, $password) {
-     echo"email = $email" . PHP_EOL . "password = $password" . PHP_EOL;
+     //echo"email = $email" . PHP_EOL . "password = $password" . PHP_EOL;
         $result = $this->mysql->query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
         // check for result 
-        $no_of_rows = mysql_num_rows($result);
+        $no_of_rows = $this->mysql->affected_rows();
         if ($no_of_rows > 0) {
-            $result = mysql_fetch_array($result);
+            $result = $this->mysql->fetch_array(MYSQLI_ASSOC);
             $salt = $result['salt'];
             $encrypted_password = $result['password'];
             $hash = $this->checkhashSSHA($salt, $password);
