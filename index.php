@@ -24,6 +24,8 @@ else{
     try{
         if(!file_exists('/var/www/API/DB_Functions.php')){
             echo "file does not exist";
+        }else{
+            echo "file found";
         }
         include_once 'DB_Functions.php';
         echo " required file included";
