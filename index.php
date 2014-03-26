@@ -17,13 +17,14 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
 else{
     $tag = $_GET["tag"];
     $post = false;
-    echo "using GET, $tag \n";
+    echo "using GET, $tag ";
 }
  
-    echo "including db handler:\n";
+    echo "including db handler:";
     // include db handler
     try{
     require_once 'DB_Functions.php';
+    echo " required file included";
     $db = new DB_Functions();
     }catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
