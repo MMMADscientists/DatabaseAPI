@@ -22,7 +22,7 @@ else{
  
     echo "including db handler:";
     try{
-        if(!file_exists('DB_Functions.php')){
+        if(!file_exists('/var/www/API/DB_Functions.php')){
             echo "file does not exist";
         }
         include_once 'DB_Functions.php';
@@ -135,4 +135,24 @@ else{
     }else {
         echo "Invalid Request";
     }
+    
+    register_shutdown_function('errorHandler');
+
+function errorHandler() { 
+    $error = error_get_last();
+    $type = $error['type'];
+    $message = $erro['message'];
+    if ($type = 64 && !empty($message)) {
+        echo "
+            <strong>
+              <font color=\"red\">
+              Fatal error captured:
+              </font>
+            </strong>
+        ";
+        echo "<pre>";
+        print_r($error);
+        echo "</pre>";
+    }
+}
 ?>
