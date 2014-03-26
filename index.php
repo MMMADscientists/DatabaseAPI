@@ -47,7 +47,7 @@ else{
         }else{
             echo "file found";
         }
-        include_once 'DB_Functions.php';
+        require_once '/var/www/API/DB_Functions.php';
         echo " required file included";
         $db = new DB_Functions();
     }catch (Exception $e) {
