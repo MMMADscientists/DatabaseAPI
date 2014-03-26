@@ -35,7 +35,7 @@ class DB_Functions {
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
-        $result = $this->mysql->query("INSERT INTO User(uid, username, password, email, salt) VALUES('$uuid', $name', '$password', '$email', '$salt' ");
+        $result = $this->mysql->query("INSERT INTO User(uid, username, password, email, salt) VALUES('$uuid', '$name', '$password', '$email', '$salt' ");
         // check for successful store
         if ($result) {
             // get user details 
