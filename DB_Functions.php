@@ -7,7 +7,10 @@ class DB_Functions {
 
     // constructor
     function __construct() {
-        $this -> mysql = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
+        $this -> mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE)or die("Error " . mysqli_error($mysql));
+        if ($this -> mysql->connect_errno) {
+            echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        }
         /*try{
         require_once 'DB_Connect.php';
         // connecting to database
