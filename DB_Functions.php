@@ -7,10 +7,15 @@ class DB_Functions {
     //put your code here
     // constructor
     function __construct() {
+        try{
         require_once 'DB_Connect.php';
         // connecting to database
         $this->db = new DB_Connect();
         $this->db->connect();
+        }catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+       }
+    
     }
  
     // destructor
