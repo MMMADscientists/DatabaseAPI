@@ -95,6 +95,6 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
         echo "Invalid Request";
     }
 } else {
-    echo "Access Denied";
+    echo "No tage detected";
 }
 ?>
