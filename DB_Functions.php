@@ -45,8 +45,8 @@ class DB_Functions {
         // check for successful store
         if ($result) {
             // get user details 
-            $uid = mysql_insert_id(); // last inserted id
-            $result = $mysqli->query("SELECT * FROM User WHERE uid = $uid");
+            $uid = $this->mysql->insert_id; // last inserted id
+            $result = $this->mysql->query("SELECT * FROM User WHERE uid = $uid");
             // return user details
             return mysql_fetch_array($result);
         } else {
