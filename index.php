@@ -39,22 +39,20 @@ else{
     $post = false;
     echo "using GET, $tag ";
 }
- 
-    echo "including db handler:";
     try{
         if(!file_exists('/var/www/API/DB_Functions.php')){
             echo "file does not exist";
         }else{
-            echo "file found";
+            echo "file found" .PHP_EOL;
         }
         require_once '/var/www/API/DB_Functions.php';
-        echo " required file included";
+        echo " required file included" . PHP_EOL;
         $db = new DB_Functions();
     }catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
     
-    echo "creating response:\n";
+    echo "creating response:" . PHP_EOL;
     // response Array
     $response = array("tag" => $tag, "success" => 0, "error" => 0);
  
