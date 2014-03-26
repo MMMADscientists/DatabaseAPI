@@ -3,10 +3,11 @@ require_once 'config.php';
 
 class DB_Functions {
     // connecting to mysql
-    private $mysql = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
+    private $mysql;// = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
 
     // constructor
     function __construct() {
+        $this -> mysql = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
         /*try{
         require_once 'DB_Connect.php';
         // connecting to database
