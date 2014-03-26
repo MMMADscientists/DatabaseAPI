@@ -21,11 +21,10 @@ else{
 }
  
     echo "including db handler:";
-    // include db handler
     try{
-    require_once 'DB_Functions.php';
-    echo " required file included";
-    $db = new DB_Functions();
+        include_once 'DB_Functions.php';
+        echo " required file included";
+        $db = new DB_Functions();
     }catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
