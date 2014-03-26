@@ -22,8 +22,12 @@ else{
  
     echo "including db handler:\n";
     // include db handler
+    try{
     require_once 'DB_Functions.php';
     $db = new DB_Functions();
+    }catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
     
     echo "creating response:\n";
     // response Array
