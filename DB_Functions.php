@@ -61,7 +61,7 @@ class DB_Functions {
      //echo"email = $email" . PHP_EOL . "password = $password" . PHP_EOL;
         $result = $this->mysql->query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
         // check for result 
-        $no_of_rows = $this->mysql->affected_rows();
+        $no_of_rows = $this->mysql->affected_rows;
         if ($no_of_rows > 0) {
             $result = $this->mysql->fetch_array(MYSQLI_ASSOC);
             $salt = $result['salt'];
