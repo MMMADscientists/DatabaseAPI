@@ -68,6 +68,9 @@ else{
             $name = $_GET['name'];
             $email = $_GET['email'];
             $password = $_GET['password'];
+            echo "name = $name \n";
+            echo "email = $email \n";
+            echo "password = $password \n";
         }
  
         // check if username is already existed
