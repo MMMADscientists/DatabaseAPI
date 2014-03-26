@@ -12,6 +12,12 @@
 if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
     // get tag
     $tag = $_POST['tag'];
+    $post = true;
+}
+else{
+    $tag = $_GET["tag"];
+    $post = false;
+}
  
     // include db handler
     require_once 'include/DB_Functions.php';
@@ -22,9 +28,15 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
  
     // check for tag type
     if ($tag == 'login') {
+        if($post){
         // Request type is check Login
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+           $email = $_POST['email'];
+           $password = $_POST['password'];
+        }
+        else{
+           $email = $_GET['email'];
+           $password = $_GET['password'];
+        }
  
         // check for username
         $username = $db->getUserByEmailAndPassword($email, $password);
@@ -46,10 +58,17 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
             echo json_encode($response);
         }
     } else if ($tag == 'register') {
+        if($post){
         // Request type is Register new username
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+        }
+        else{
+            $name = $_GET['name'];
+            $email = $_GET['email'];
+            $password = $_GET['password'];
+        }
  
         // check if username is already existed
         if ($db->isUserExisted($email)) {
@@ -77,9 +96,15 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
             }
         }
     }else if ($tag == "houses"){
-         //find houses given username
-         $name = $_POST["name"];
-         $tuples = $db->getHouseData($name);
+         if($post){
+             $name = $_POST["name"];
+             $tuples = $db->getHouseData($name);
+         }
+         else{
+             $name = $_POST["name"];
+             $tuples = $db->getHouseData($name);
+         }
+         
          if($username){
              $response["success"] = 1;
              $response["tuples"] = $tuples;
@@ -94,12 +119,4 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
     }else {
         echo "Invalid Request";
     }
-} else {
-    echo "No tag detected";
-    if (isset($_GET['tag'])){
-        $tag = $_GET["tag"];
-       echo "tag = ";
-       echo $tag;
-    }
-}
 ?>
