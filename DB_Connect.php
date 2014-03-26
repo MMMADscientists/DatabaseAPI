@@ -21,14 +21,14 @@ class DB_Connect {
         $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
         // selecting database (depreciated, moved to connect stmt)
         //mysql_select_db(DB_DATABASE);
-        $db = $con;
+        $this -> db = $con;
         // return database handler
         return $con;
     }
  
     // Closing database connection
     public function close() {
-        $db->close();
+        $this -> db ->close();
     }
  
 }
