@@ -13,7 +13,7 @@ class DB_Functions {
         require_once 'DB_Connect.php';
         // connecting to database
         $this->db = new DB_Connect();
-        $this->mysql-> = $this->db->connect();
+        $this->mysql = $this->db->connect();
         }catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
        }
