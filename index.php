@@ -9,7 +9,7 @@
   /**
  * check for POST request 
  */
-if (isset($_POST['tag']) && $_POST['tag'] != '') {
+if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
     // get tag
     $tag = $_POST['tag'];
  
@@ -95,6 +95,9 @@ if (isset($_POST['tag']) && $_POST['tag'] != '') {
         echo "Invalid Request";
     }
 } else {
-    echo "No tage detected";
+    echo "No tag detected";
+    if (isset($_GET['tag'])){
+       echo "tag = " + $_GET['tag'];
+    }
 }
 ?>
