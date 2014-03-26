@@ -97,7 +97,8 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
 } else {
     echo "No tag detected";
     if (isset($_GET['tag'])){
-       echo "tag = " + $_GET['tag'];
+        $tag = $_GET["tag"];
+       echo "tag = " + $tag;
     }
 }
 ?>
