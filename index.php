@@ -23,7 +23,8 @@ else{
     // include db handler
     require_once 'include/DB_Functions.php';
     $db = new DB_Functions();
- 
+    
+    echo "creating response:\n";
     // response Array
     $response = array("tag" => $tag, "success" => 0, "error" => 0);
  
