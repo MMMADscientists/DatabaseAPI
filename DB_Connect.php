@@ -18,7 +18,7 @@ class DB_Connect {
     public function connect() {
         require_once 'config.php';
         // connecting to mysql
-        $con = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
+        $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
         // selecting database (depreciated, moved to connect stmt)
         //mysql_select_db(DB_DATABASE);
         $db = $con;
