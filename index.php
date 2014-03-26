@@ -22,6 +22,9 @@ else{
  
     echo "including db handler:";
     try{
+        if(!file_exists('DB_Functions.php')){
+            echo "file does not exist";
+        }
         include_once 'DB_Functions.php';
         echo " required file included";
         $db = new DB_Functions();
