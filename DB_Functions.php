@@ -48,7 +48,7 @@ class DB_Functions {
             $uid = $this->mysql->insert_id; // last inserted id
             $result = $this->mysql->query("SELECT * FROM User WHERE uid = $uid");
             // return user details
-            return $this->mysql->fetch_array(MYSQLI_ASSOC);
+            return $result->fetch_array(MYSQLI_ASSOC);
         } else {
             return false;
         }
@@ -63,7 +63,7 @@ class DB_Functions {
         // check for result 
         $no_of_rows = $this->mysql->affected_rows;
         if ($no_of_rows > 0) {
-            $result = $this->mysql->fetch_array(MYSQLI_ASSOC);
+            $result = $result->fetch_array(MYSQLI_ASSOC);
             $salt = $result['salt'];
             $encrypted_password = $result['password'];
             $hash = $this->checkhashSSHA($salt, $password);
