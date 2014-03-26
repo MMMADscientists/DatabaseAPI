@@ -1,15 +1,10 @@
 <?php
- 
+require_once 'config.php';
+
 class DB_Functions {
- 
-    private $db;
-    private $mysql;
-    
-    require_once 'config.php';
     // connecting to mysql
     $mysqli = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE);
- 
-    //put your code here
+
     // constructor
     function __construct() {
         /*try{
