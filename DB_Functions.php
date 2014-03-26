@@ -48,7 +48,7 @@ class DB_Functions {
             $uid = $this->mysql->insert_id; // last inserted id
             $result = $this->mysql->query("SELECT * FROM User WHERE uid = $uid");
             // return user details
-            return mysql_fetch_array($result);
+            return $this->mysql->fetch_array(MYSQLI_ASSOC);
         } else {
             return false;
         }
