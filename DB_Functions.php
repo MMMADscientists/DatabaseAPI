@@ -39,7 +39,7 @@ class DB_Functions {
         if ($result) {
             // get user details 
             $uid = mysql_insert_id(); // last inserted id
-            $result = mysqli_query($db,"SELECT * FROM User WHERE uid = $uid");
+            $result = mysqli_query("SELECT * FROM User WHERE uid = $uid");
             // return user details
             return mysql_fetch_array($result);
         } else {
@@ -51,7 +51,7 @@ class DB_Functions {
      * Get user by email and password
      */
     public function getUserByEmailAndPassword($email, $password) {
-        $result = mysqli_query($db,"SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
+        $result = mysqli_query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
         // check for result 
         $no_of_rows = mysql_num_rows($result);
         if ($no_of_rows > 0) {
@@ -74,7 +74,7 @@ class DB_Functions {
      * Check user is existed or not
      */
     public function isUserExisted($email) {
-        $result = mysql_query("SELECT email from User WHERE email = '$email'");
+        $result = mysqli_query("SELECT email from User WHERE email = '$email'");
         if(!$result){return false;}
         $no_of_rows = mysql_num_rows($result);
         if ($no_of_rows > 0) {
@@ -87,7 +87,7 @@ class DB_Functions {
     }
     
     public function getHouseData($name){
-        $result = mysql_query("SELECT * FROM Property WHERE username = '$name'");
+        $result = mysqli_query("SELECT * FROM Property WHERE username = '$name'");
         $no_of_rows = mysql_num_rows($result);
         if(no_of_rows > 0){
              //user has houses
