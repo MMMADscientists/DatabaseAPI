@@ -9,6 +9,26 @@
   /**
  * check for POST request 
  */
+    register_shutdown_function('errorHandler');
+
+function errorHandler() { 
+    $error = error_get_last();
+    $type = $error['type'];
+    $message = $erro['message'];
+    if ($type = 64 && !empty($message)) {
+        echo "
+            <strong>
+              <font color=\"red\">
+              Fatal error captured:
+              </font>
+            </strong>
+        ";
+        echo "<pre>";
+        print_r($error);
+        echo "</pre>";
+    }
+} 
+ 
 if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
     // get tag
     $tag = $_POST['tag'];
@@ -137,24 +157,4 @@ else{
     }else {
         echo "Invalid Request";
     }
-    
-    register_shutdown_function('errorHandler');
-
-function errorHandler() { 
-    $error = error_get_last();
-    $type = $error['type'];
-    $message = $erro['message'];
-    if ($type = 64 && !empty($message)) {
-        echo "
-            <strong>
-              <font color=\"red\">
-              Fatal error captured:
-              </font>
-            </strong>
-        ";
-        echo "<pre>";
-        print_r($error);
-        echo "</pre>";
-    }
-}
 ?>
