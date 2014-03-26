@@ -17,6 +17,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
 else{
     $tag = $_GET["tag"];
     $post = false;
+    echo "using GET \n";
 }
  
     // include db handler
