@@ -84,7 +84,7 @@ class DB_Functions {
     public function isUserExisted($email) {
         $result = $this->mysql->query("SELECT email from User WHERE email = '$email'");
         if(!$result){return false;}
-        $no_of_rows = mysql_num_rows($result);
+        $no_of_rows = $this->mysql->affected_rows;
         if ($no_of_rows > 0) {
             // user existed 
             return true;
