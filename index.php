@@ -27,6 +27,9 @@ else{
     // response Array
     $response = array("tag" => $tag, "success" => 0, "error" => 0);
  
+    if(!$post){
+        echo "$response \n";
+    }
     // check for tag type
     if ($tag == 'login') {
         if($post){
