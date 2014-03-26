@@ -20,6 +20,7 @@ else{
     echo "using GET, $tag \n";
 }
  
+    echo "including db handler:\n";
     // include db handler
     require_once 'include/DB_Functions.php';
     $db = new DB_Functions();
