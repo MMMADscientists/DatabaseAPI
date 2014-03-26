@@ -31,12 +31,12 @@ class DB_Functions {
      * returns user details
      */
     public function storeUser($name, $email, $password) {
-        $uuid = uniqid('', true);
+        //$uuid = uniqid('', true);
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
-        echo PHP_EOL . "INSERT INTO User(uid, username, password, email, salt) VALUES('$uuid', '$name', '$password', '$email', '$salt' )";
-        $result = $this->mysql->query("INSERT INTO User(uid, username, password, email, salt) VALUES('$uuid', '$name', '$password', '$email', '$salt' )");
+        echo PHP_EOL . "INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )";
+        $result = $this->mysql->query("INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )");
         // check for successful store
         if ($result) {
             // get user details 
