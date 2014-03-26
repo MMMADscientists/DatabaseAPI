@@ -14,7 +14,7 @@
 function errorHandler() { 
     $error = error_get_last();
     $type = $error['type'];
-    $message = $erro['message'];
+    $message = $error['message'];
     if ($type = 64 && !empty($message)) {
         echo "
             <strong>
