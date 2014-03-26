@@ -3,6 +3,7 @@
 class DB_Functions {
  
     private $db;
+    private $mysql;
  
     //put your code here
     // constructor
@@ -12,7 +13,7 @@ class DB_Functions {
         require_once 'DB_Connect.php';
         // connecting to database
         $this->db = new DB_Connect();
-        $this->db->connect();
+        $this->mysql-> = $this->db->connect();
         }catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
        }
@@ -34,12 +35,12 @@ class DB_Functions {
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
-        $result = mysqli_query("INSERT INTO User(uid, username, password, email, salt) VALUES('$uuid', $name', '$password', '$email', '$salt' ");
+        $result = $this->mysql->query("INSERT INTO User(uid, username, password, email, salt) VALUES('$uuid', $name', '$password', '$email', '$salt' ");
         // check for successful store
         if ($result) {
             // get user details 
             $uid = mysql_insert_id(); // last inserted id
-            $result = mysqli_query("SELECT * FROM User WHERE uid = $uid");
+            $result = $this->mysql->query("SELECT * FROM User WHERE uid = $uid");
             // return user details
             return mysql_fetch_array($result);
         } else {
@@ -51,7 +52,7 @@ class DB_Functions {
      * Get user by email and password
      */
     public function getUserByEmailAndPassword($email, $password) {
-        $result = mysqli_query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
+        $result = $this->mysql->query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
         // check for result 
         $no_of_rows = mysql_num_rows($result);
         if ($no_of_rows > 0) {
@@ -74,7 +75,7 @@ class DB_Functions {
      * Check user is existed or not
      */
     public function isUserExisted($email) {
-        $result = mysqli_query("SELECT email from User WHERE email = '$email'");
+        $result = $this->mysql->query("SELECT email from User WHERE email = '$email'");
         if(!$result){return false;}
         $no_of_rows = mysql_num_rows($result);
         if ($no_of_rows > 0) {
@@ -87,7 +88,7 @@ class DB_Functions {
     }
     
     public function getHouseData($name){
-        $result = mysqli_query("SELECT * FROM Property WHERE username = '$name'");
+        $result = $this->mysql->query("SELECT * FROM Property WHERE username = '$name'");
         $no_of_rows = mysql_num_rows($result);
         if(no_of_rows > 0){
              //user has houses
