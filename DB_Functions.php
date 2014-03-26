@@ -8,7 +8,6 @@ class DB_Functions {
     //put your code here
     // constructor
     function __construct() {
-        echo " creating db_functions";
         try{
         require_once 'DB_Connect.php';
         // connecting to database
@@ -53,6 +52,7 @@ class DB_Functions {
      * Get user by email and password
      */
     public function getUserByEmailAndPassword($email, $password) {
+     echo"email = $email" . PHP_EOL . "password = $password" . PHP_EOL;
         $result = $this->mysql->query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
         // check for result 
         $no_of_rows = mysql_num_rows($result);
