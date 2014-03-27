@@ -59,9 +59,9 @@ class DB_Functions {
     /**
      * Get user by email and password
      */
-    public function getUserByEmailAndPassword($email, $password) {
+    public function getUserByEmailAndPassword($username, $password) {
      //echo"email = $email" . PHP_EOL . "password = $password" . PHP_EOL;
-        $result = $this->mysql->query("SELECT * FROM User WHERE email = '$email'") or die(mysql_error());
+        $result = $this->mysql->query("SELECT * FROM User WHERE username = '$username'") or die(mysql_error());
         // check for result 
         $no_of_rows = $this->mysql->affected_rows;
         if ($no_of_rows > 0) {
@@ -83,8 +83,8 @@ class DB_Functions {
     /**
      * Check user is existed or not
      */
-    public function isUserExisted($email) {
-        $result = $this->mysql->query("SELECT email from User WHERE email = '$email'");
+    public function isUserExisted($username) {
+        $result = $this->mysql->query("SELECT email from User WHERE username = '$username'");
         if(!$result){return false;}
         $no_of_rows = $this->mysql->affected_rows;
         if ($no_of_rows > 0) {
