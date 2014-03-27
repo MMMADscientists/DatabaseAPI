@@ -60,16 +60,16 @@ else{
     if ($tag == 'login') {
         if($post){
         // Request type is check Login
-           $email = $_POST['email'];
+           $name = $_POST['username'];
            $password = $_POST['password'];
         }
         else{
-           $email = $_GET['email'];
+           $name = $_GET['username'];
            $password = $_GET['password'];
         }
  
         // check for username
-        $username = $db->getUserByEmailAndPassword($email, $password);
+        $username = $db->getUserByEmailAndPassword($name, $password);
         if ($username != false) {
             // username found
             // echo json with success = 1
