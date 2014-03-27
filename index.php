@@ -74,7 +74,7 @@ else{
             // username found
             // echo json with success = 1
             $response["success"] = 1;
-            $response["uid"] = $username["unique_id"];
+            $response["uid"] = $username["uid"];
             $response["username"]["name"] = $username["username"];
             $response["username"]["email"] = $username["email"];
             //$response["username"]["created_at"] = $username["created_at"];
