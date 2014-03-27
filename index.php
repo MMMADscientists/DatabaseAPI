@@ -84,7 +84,7 @@ else{
             // username not found
             // echo json with error = 1
             $response["error"] = 1;
-            $response["error_msg"] = "Incorrect email or password!";
+            $response["error_msg"] = "Incorrect username or password!";
             echo json_encode($response);
         }
     } else if ($tag == 'register') {
