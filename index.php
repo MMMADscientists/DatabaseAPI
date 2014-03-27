@@ -75,7 +75,7 @@ else{
             // echo json with success = 1
             $response["success"] = 1;
             $response["uid"] = $username["unique_id"];
-            $response["username"]["name"] = $username["name"];
+            $response["username"]["name"] = $username["username"];
             $response["username"]["email"] = $username["email"];
             //$response["username"]["created_at"] = $username["created_at"];
             //$response["username"]["updated_at"] = $username["updated_at"];
@@ -90,12 +90,12 @@ else{
     } else if ($tag == 'register') {
         if($post){
         // Request type is Register new username
-            $name = $_POST['name'];
+            $name = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
         }
         else{
-            $name = $_GET['name'];
+            $name = $_GET['username'];
             $email = $_GET['email'];
             $password = $_GET['password'];
             //echo "name = $name \n";
@@ -130,11 +130,11 @@ else{
         }
     }else if ($tag == "houses"){
          if($post){
-             $name = $_POST["name"];
+             $name = $_POST["username"];
              $tuples = $db->getHouseData($name);
          }
          else{
-             $name = $_POST["name"];
+             $name = $_POST["username"];
              $tuples = $db->getHouseData($name);
          }
          
