@@ -40,7 +40,7 @@ class DB_Functions {
         $hash = $this->hashSSHA($password);
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
-        echo PHP_EOL . "INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )";
+        //echo PHP_EOL . "INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )";
         $result = $this->mysql->query("INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )");
         // check for successful store
         if ($result) {
@@ -48,6 +48,8 @@ class DB_Functions {
             $uid = $this->mysql->insert_id; // last inserted id
             $result = $this->mysql->query("SELECT * FROM User WHERE uid = $uid");
             // return user details
+            echo PHP_EOL
+            echo $result->fetch_array(MYSQLI_ASSOC);
             return $result->fetch_array(MYSQLI_ASSOC);
         } else {
             return false;
