@@ -8,12 +8,12 @@ class DB_Functions {
     // constructor
     function __construct() {
         $this -> mysql = new mysqli(DB_HOST, DB_USER, DB_PASSWORD,DB_DATABASE)or die("Error " . mysqli_error($mysql));
-        if ($this -> mysql->connect_errno) {
+        /*if ($this -> mysql->connect_errno) {
             echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         }
         else{
             echo "Connected to MySQL" . PHP_EOL;
-        }
+        }*/
         /*try{
         require_once 'DB_Connect.php';
         // connecting to database
@@ -48,8 +48,8 @@ class DB_Functions {
             $uid = $this->mysql->insert_id; // last inserted id
             $result = $this->mysql->query("SELECT * FROM User WHERE uid = $uid");
             // return user details
-            echo PHP_EOL;
-            echo  json_encode($result->fetch_array(MYSQLI_ASSOC));
+            //echo PHP_EOL;
+            //echo  json_encode($result->fetch_array(MYSQLI_ASSOC));
             return $result->fetch_array(MYSQLI_ASSOC);
         } else {
             return false;
