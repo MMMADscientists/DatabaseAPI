@@ -118,8 +118,8 @@ else{
             if ($username) {
                 // username stored successfully
                 $response["success"] = 1;
-                $response["uid"] = $username["unique_id"];
-                $response["username"]["name"] = $username["name"];
+                $response["uid"] = $username["uid"];
+                $response["username"]["name"] = $username["username"];
                 $response["username"]["email"] = $username["email"];
                 //$response["username"]["created_at"] = $username["created_at"];
                 //$response["username"]["updated_at"] = $username["updated_at"];
