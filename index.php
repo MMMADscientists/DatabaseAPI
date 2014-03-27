@@ -37,7 +37,7 @@ if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
 else{
     $tag = $_GET["tag"];
     $post = false;
-    echo "using GET, $tag ";
+    //echo "using GET, $tag ";
 }
     try{
         if(!file_exists('/var/www/API/DB_Functions.php')){
@@ -46,19 +46,16 @@ else{
             echo "file found" .PHP_EOL;
         }
         require_once '/var/www/API/DB_Functions.php';
-        echo " required file included" . PHP_EOL;
+        //echo " required file included" . PHP_EOL;
         $db = new DB_Functions();
     }catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
     
-    echo "creating response:" . PHP_EOL;
+    //echo "creating response:" . PHP_EOL;
     // response Array
     $response = array("tag" => $tag, "success" => 0, "error" => 0);
  
-    if(!$post){
-        echo "checking tag \n";
-    }
     // check for tag type
     if ($tag == 'login') {
         if($post){
@@ -101,9 +98,9 @@ else{
             $name = $_GET['name'];
             $email = $_GET['email'];
             $password = $_GET['password'];
-            echo "name = $name \n";
-            echo "email = $email \n";
-            echo "password = $password \n";
+            //echo "name = $name \n";
+            //echo "email = $email \n";
+            //echo "password = $password \n";
         }
  
         // check if username is already existed
