@@ -42,8 +42,6 @@ else{
     try{
         if(!file_exists('/var/www/API/DB_Functions.php')){
             echo "file does not exist";
-        }else{
-            echo "file found" .PHP_EOL;
         }
         require_once '/var/www/API/DB_Functions.php';
         //echo " required file included" . PHP_EOL;
