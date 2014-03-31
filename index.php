@@ -172,15 +172,15 @@ else{
          }
     }else if ($tag == "houses"){
          if($post){
-             $name = $_POST["username"];
+             $username = $_POST["username"];
              $tuples = $db->getHouseData($name);
          }
          else{
-             $name = $_GET["username"];
+             $username = $_GET["username"];
              $tuples = $db->getHouseData($name);
          }
          
-         if($username){
+         if($tuples){
              $response["success"] = 1;
              $response["tuples"] = $tuples;
              echo json_encode($response);
