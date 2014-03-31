@@ -191,7 +191,27 @@ else{
              echo json_encode($response);
          }
     
-    }else {
+    }else if ($tag == 'rooms'){
+        if($post){
+            $propertyID = $_POST['propertyID'];
+        }
+        else{
+            $propertyID = $_GET['propertyID'];
+        }
+        $tuples = $db->getRoomFromHouse($propertyID);
+        if($tuples){
+             $response["success"] = 1;
+             $response["tuples"] = $tuples;
+             echo json_encode($response);
+         }else{
+             $response["error"] = 1;
+             $response["error_code"] = 0;
+             $response["error_msg"] = "No data found";
+             echo json_encode($response);
+         }
+        
+    }
+    else {
         echo "Invalid Request";
     }
 ?>
