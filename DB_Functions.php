@@ -37,6 +37,12 @@ class DB_Functions {
          if($result) return $result;
          else return false;
      }
+     
+     public function changePropertyName($propertyID, $newName){
+         $result = $this->mysql->query("UPDATE Property SET address = '$newName' WHERE idProperty = '$propertyID'");
+         if($result) return $result;
+         else return false;
+     }
  
  
     /**
