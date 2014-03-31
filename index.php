@@ -126,13 +126,35 @@ else{
                 echo json_encode($response);
             }
         }
+    }else if ($tag == "renameRoom"){
+         if($post){
+             $roomID = $_POST['roomID'];
+             $roomName = $_POST['roomName'];
+         }
+         else{
+             $roomID = $_GET['roomID'];
+             $roomName = $_GET['roomName'];
+         }
+         
+         $tuples = $db->changeRoomName($roomID, $roomName);
+         if($tuples){
+             $response['success'] = 1;
+             $response['tuples'] = $tuples;
+             echo json_encode($response);
+         }
+         else{
+             $response["error"] = 1;
+             $response["error_code"] = 0;
+             $response["error_msg"] = "No data found";
+             echo json_encode($response);
+         }
     }else if ($tag == "houses"){
          if($post){
              $name = $_POST["username"];
              $tuples = $db->getHouseData($name);
          }
          else{
-             $name = $_POST["username"];
+             $name = $_GET["username"];
              $tuples = $db->getHouseData($name);
          }
          
