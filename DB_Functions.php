@@ -112,8 +112,8 @@ class DB_Functions {
     
     public function getHouseData($name){
         $result = $this->mysql->query("SELECT * FROM Property WHERE username = '$name'");
-        $no_of_rows = mysql_num_rows($result);
-        if(no_of_rows > 0){
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
              //user has houses
              return $result;
         }
