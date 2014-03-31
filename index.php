@@ -132,7 +132,7 @@ else{
              $address = $_POST['address'];
          }
          else{
-             $roomID = $_GET['propertyID'];
+             $propertyID = $_GET['propertyID'];
              $address = $_GET['address'];
          }
          
