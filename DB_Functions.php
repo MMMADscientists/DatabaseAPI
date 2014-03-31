@@ -33,7 +33,7 @@ class DB_Functions {
      * 
      */
      public function changeRoomName($roomID, $newName){
-         $result = $this->mysql->query("UPDATE TABLE Room SET name = '$newName' WHERE idRoom = '$roomID'");
+         $result = $this->mysql->query("UPDATE Room SET name = '$newName' WHERE idRoom = '$roomID'");
          if($result) return $result;
          else return false;
      }
