@@ -123,9 +123,8 @@ class DB_Functions {
         $result = $this->mysql->query("SELECT * FROM Property WHERE username = '$name'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             //user has houses
-             $result = $result->fetch_array(MYSQLI_ASSOC);
-             return $result;
+             $rows = $this->resultToArray($result);
+             return $rows;
         }
         else{
             //user has no homes created
@@ -137,7 +136,7 @@ class DB_Functions {
         $result = $this->mysql->query("SELECT * FROM Room WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = resultToArray($result);
+             $rows = $this->resultToArray($result);
              return $rows;
         }
         else{
