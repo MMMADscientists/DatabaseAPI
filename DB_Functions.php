@@ -24,6 +24,15 @@ class DB_Functions {
        }*/
     
     }
+    
+    function resultToArray($result) {
+        $rows = array();
+        while($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
+
  
     // destructor
     function __destruct() {
@@ -128,9 +137,8 @@ class DB_Functions {
         $result = $this->mysql->query("SELECT * FROM Room WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             //user has houses
-             $result = $result->fetch_array(MYSQLI_ASSOC);
-             return $result;
+             $rows = resultToArray($result);
+             return $rows;
         }
         else{
             //user has no homes created
