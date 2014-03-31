@@ -29,9 +29,17 @@ class DB_Functions {
     function __destruct() {
          
     }
+    /**
+     * 
+     */
+     public function changeRoomName($roomID, $newName){
+         $result = $this->mysql->query("UPDATE TABLE Room SET name = '$newName' WHERE idRoom = '$roomID'");
+         if($result) return $result;
+         else return false;
+     }
+ 
  
     /**
-     * DO NOT USE YET
      * Storing new user
      * returns user details
      */
