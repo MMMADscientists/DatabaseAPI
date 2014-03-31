@@ -126,6 +126,28 @@ else{
                 echo json_encode($response);
             }
         }
+    }else if ($tag == "renameProperty"){
+        if($post){
+             $propertyID = $_POST['propertyID'];
+             $roomName = $_POST['address'];
+         }
+         else{
+             $roomID = $_GET['propertyID'];
+             $roomName = $_GET['address'];
+         }
+         
+         $tuples = $db->changePropertyName($propertyID, $address);
+         if($tuples){
+             $response['success'] = 1;
+             $response['tuples'] = $tuples;
+             echo json_encode($response);
+         }
+         else{
+             $response["error"] = 1;
+             $response["error_code"] = 0;
+             $response["error_msg"] = "No data found";
+             echo json_encode($response);
+         }
     }else if ($tag == "renameRoom"){
          if($post){
              $roomID = $_POST['roomID'];
