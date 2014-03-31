@@ -129,11 +129,11 @@ else{
     }else if ($tag == "renameProperty"){
         if($post){
              $propertyID = $_POST['propertyID'];
-             $roomName = $_POST['address'];
+             $address = $_POST['address'];
          }
          else{
              $roomID = $_GET['propertyID'];
-             $roomName = $_GET['address'];
+             $address = $_GET['address'];
          }
          
          $tuples = $db->changePropertyName($propertyID, $address);
