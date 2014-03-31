@@ -173,11 +173,11 @@ else{
     }else if ($tag == "houses"){
          if($post){
              $username = $_POST["username"];
-             $tuples = $db->getHouseData($name);
+             $tuples = $db->getHouseData($username);
          }
          else{
              $username = $_GET["username"];
-             $tuples = $db->getHouseData($name);
+             $tuples = $db->getHouseData($username);
          }
          
          if($tuples){
