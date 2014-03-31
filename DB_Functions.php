@@ -115,6 +115,7 @@ class DB_Functions {
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
              //user has houses
+             $result = $result->fetch_array(MYSQLI_ASSOC);
              return $result;
         }
         else{
