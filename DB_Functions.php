@@ -158,7 +158,7 @@ class DB_Functions {
         }
     }
     
-    public function createProperty($address, $username, $url, $defaultRoom){
+    public function createHouse($address, $username, $url, $defaultRoom){
         $result = $this->mysql->query("INSERT INTO Property(address, username, houseURL, idDefaultRoom) VALUES('$address', '$username', '$url', '$defaultRoom'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
