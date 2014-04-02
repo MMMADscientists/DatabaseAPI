@@ -210,6 +210,53 @@ else{
              echo json_encode($response);
          }
         
+    }else if($tag == 'createHouse'){
+        if($post){
+               $address = $_POST['address'];
+               $username = $_POST['username'];
+               $houseURL = $_POST['houseURL'];
+               $defaultRoom = $_POST['defaultRoom'];
+           }
+           else{
+               $address = $_GET['address'];
+               $username = $_GET['username'];
+               $houseURL = $_GET['houseURL'];
+               $defaultRoom = $_GET['defaultRoom'];
+           }
+           $tuples = $db->createHouse($address, $username, $houseURL, $defaultRoom);
+           if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+            }
+    }else if($tag == 'createRoom'){
+        if($post){
+               $name = $_POST['name'];
+               $propertyID = $_POST['propertyID'];
+               $roomURL = $_POST['roomURL'];
+               
+           }
+           else{
+               $name = $_GET['name'];
+               $propertyID = $_GET['propertyID'];
+               $roomURL = $_GET['roomURL'];
+           }
+           $tuples = $db->createRoom($name, $propertyID, $roomURL);
+           if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+            }
     }
     else {
         echo "Invalid Request";
