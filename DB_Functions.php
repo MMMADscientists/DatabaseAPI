@@ -144,6 +144,32 @@ class DB_Functions {
             return false;
         }
     }
+    
+    public function createRoom($name, $propertyID, $url){
+        $result = $this->mysql->query("INSERT INTO Room(name,idProperty,roomURL) VALUES('$name', '$propertyID', '$url'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
+    
+    public function createProperty($address, $username, $url, $defaultRoom){
+        $result = $this->mysql->query("INSERT INTO Property(address, username, houseURL, idDefaultRoom) VALUES('$address', '$username', '$url', '$defaultRoom'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
  
     /**
      * Encrypting password
