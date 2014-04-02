@@ -146,7 +146,7 @@ class DB_Functions {
     }
     
     public function createRoom($name, $propertyID, $url){
-        $result = $this->mysql->query("INSERT INTO Room(name,idProperty,roomURL) VALUES('$name', '$propertyID', '$url'");
+        $result = $this->mysql->query("INSERT INTO Room(name,idProperty,roomURL) VALUES('$name', '$propertyID', '$url')");
         if ($result) {
             // get user details 
             $uid = $this->mysql->insert_id; // last inserted id
@@ -161,7 +161,7 @@ class DB_Functions {
     }
     
     public function createHouse($address, $username, $url, $defaultRoom){
-        $result = $this->mysql->query("INSERT INTO Property(address, username, houseURL, idDefaultRoom) VALUES('$address', '$username', '$url', '$defaultRoom'");
+        $result = $this->mysql->query("INSERT INTO Property(address, username, houseURL, idDefaultRoom) VALUES('$address', '$username', '$url', '$defaultRoom')");
         if ($result) {
             // get user details 
             $uid = $this->mysql->insert_id; // last inserted id
