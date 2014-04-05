@@ -351,6 +351,7 @@ else{
                 $response["error_msg"] = "No data found";
                 echo json_encode($response);
         }
+    }
     else {
         echo "Invalid Request";
     }
