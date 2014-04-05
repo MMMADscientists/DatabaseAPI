@@ -326,7 +326,7 @@ else{
             $locationY = $_GET['doorY'];
             $locationZ = $_GET['doorZ'];
         }
-        $tuples = $db->addConnection($sourceID, $destinationID, $locationX, $locationY, $locationZ);
+        $tuples = $db->createConnection($sourceID, $destinationID, $locationX, $locationY, $locationZ);
         if($tuples){
                 $response["success"] = 1;
                 $response["tuples"] = $tuples;
