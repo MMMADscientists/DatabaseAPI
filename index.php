@@ -358,6 +358,90 @@ else{
                 $response["error_msg"] = "No data found";
                 echo json_encode($response);
         }
+    }else if($tag =='changeRoomURL'){
+        if($post){
+            $roomID = $_POST['roomID'];
+            $URL = $_POST['$newURL'];
+        }
+        else{
+            $roomID = $_GET['roomID'];
+            $URL = $_GET['newURL'];
+        }
+        $tuples = $db->changeRoomURL($roomID, $URL);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
+    }else if($tag =='changeConnectionTarget'){
+        if($post){
+            $connectionID = $_POST['connectionID'];
+            $doorX = $_POST['$doorX'];
+            $doorY = $_POST['$doorY'];
+            $doorZ = $_POST['$doorZ'];
+        }
+        else{
+            $connectionID = $_GET['connectionID'];
+            $doorX = $_GET['$doorX'];
+            $doorY = $_GET['$doorY'];
+            $doorZ = $_GET['$doorZ'];
+        }
+        $tuples = $db->changeConnectionTarget($connectionID, $doorX, $doorY, $doorZ);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
+    }else if($tag =='changeHouseURL'){
+        if($post){
+            $propertyID = $_POST['propertyID'];
+            $newURL = $_POST['$newURL'];
+        }
+        else{
+            $propertyID = $_GET['propertyID'];
+            $newURL = $_GET['$newURL'];
+        }
+        $tuples = $db->changeHouseURL($propertyID, $newURL);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
+    }else if($tag =='changeHouseDefaultRoom'){
+        if($post){
+            $propertyID = $_POST['propertyID'];
+            $defaultRoom = $_POST['$defaultRoom'];
+        }
+        else{
+            $propertyID = $_GET['propertyID'];
+            $defaultRoom = $_GET['$defaultRoom'];
+        }
+        $tuples = $db->changeHouseDefaultRoom($propertyID, $defaultRoom);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
     }
     else {
         echo "Invalid Request";

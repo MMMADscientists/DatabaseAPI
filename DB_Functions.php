@@ -233,6 +233,32 @@ class DB_Functions {
             return false;
         }
     }
+    
+    public function changeRoomURL($roomID, $URL){
+        $result = $this->mysql->query("UPDATE Room SET(roomURL = '$URL') WHERE idRoom = '$roomID'");
+        if($result) return $result;
+        else return false;
+    }
+    
+    public function changeConnectiontarget($connectionID, $doorX, $doorY, $doorZ){
+        $result = $this->mysql->query("UPDATE Connection SET(doorX = '$doorX', doorY='$doorY', doorZ='$doorZ') WHERE idConnection = '$connectionID'");
+        if($result) return $result;
+        else return false;
+    }
+    
+    public function changeHouseURL($propertyID, $URL){
+        $result = $this->mysql->query("UPDATE Property SET(houseURL = '$URL') WHERE idProperty = '$propertyID'");
+        if($result) return $result;
+        else return false;
+    }
+    
+    public function changeHouseDefaultRoom($propertyID, $defaultRoom){
+        $result = $this->mysql->query("UPDATE Property SET(idDefaultRoom = '$defaultRoom') WHERE idProperty = '$propertyID'");
+        if($result) return $result;
+        else return false;
+    }
+    
+    
  
     /**
      * Encrypting password
