@@ -257,7 +257,100 @@ else{
                 $response["error_msg"] = "No data found";
                 echo json_encode($response);
             }
-    }
+    }else if($tag == 'deleteRoom'){
+        if($post){
+            $roomID = $_POST['roomID'];
+        }
+        else{
+            $roomID = $_GET['roomID'];
+        }
+        $tuples = $db->deleteRoom($roomID);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+            }
+    }else if($tag == 'deleteProperty'){
+        if($post){
+            $propertyID = $_POST['propertyID'];
+        }
+        else{
+            $propertyID = $_GET['propertyID'];
+        }
+        $tuples = $db->deleteRoom($propertyID);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
+    }else if($tag == 'connections'){
+        if($post){
+            $roomID = $_POST['roomID'];
+        }
+        else{
+            $roomID = $_GET['roomID'];
+        }
+        $tuples = $db->getConnections($roomID);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
+    }else if($tag == 'createConnection'){
+        if($post){
+            $sourceID = $_POST['sourceID'];
+            $destinationID = $_POST['destinationID'];
+            $location = $_POST['doorPos'];
+        }
+        else{
+            $sourceID = $_GET['sourceID'];
+            $destinationID = $_GET['destinationID'];
+            $location = $_GET['doorPos'];
+        }
+        $tuples = $db->addConnection($sourceID, $destinationID, $location);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
+    }else if($tag == 'deleteConnection'){
+        if($post){
+            $idConnection = $_POST['connectionID'];
+        }
+        else{
+            $idConnection = $_GET['connectionID'];
+        }
+        $tuples = $db->deleteConnection($idConnection);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
     else {
         echo "Invalid Request";
     }

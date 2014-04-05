@@ -1,0 +1,46 @@
+login
+	username
+	password
+
+renameProperty
+	propertyID
+	address
+
+renameRoom
+	roomID
+	roomName
+
+houses
+	username
+
+rooms
+	propertyID
+
+connections
+	roomID
+
+createHouse
+	address
+	username
+	houseURL
+	defaultRoom
+
+createRoom
+	name
+	propertyID
+	roomURL
+
+createConnection
+	sourceID
+	destinationID
+	doorPos
+
+deleteProperty
+	propertyID
+
+deleteRoom
+	roomID
+
+deleteConnection
+	connectionID
+

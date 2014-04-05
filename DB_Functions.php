@@ -145,6 +145,19 @@ class DB_Functions {
         }
     }
     
+    public function getConnections($roomID){
+        $result = $this->mysql->query("SELECT * FROM Connection WHERE idSource = '$roomID'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
+    
     public function createRoom($name, $propertyID, $url){
         $result = $this->mysql->query("INSERT INTO Room(name,idProperty,roomURL) VALUES('$name', '$propertyID', '$url')");
         if ($result) {
@@ -171,6 +184,55 @@ class DB_Functions {
             //echo  json_encode($result->fetch_array(MYSQLI_ASSOC));
             return $result->fetch_array(MYSQLI_ASSOC);
         } else {
+            return false;
+        }
+    }
+    
+    public function createConnection($source, $destination, $doorLoc){
+        $result = $this->mysql->query("INSERT INTO Connection(idSource, idDestination, doorLoc) VALUES('$source', '$destination', '$doorLoc')");
+        if($result){
+            $uid = $this->mysql->insert_id; // last inserted id
+            $result = $this->mysql->query("SELECT * FROM Connection WHERE idConnection = $uid");
+            return $result->fetch_array(MYSQLI_ASSOC);
+        }
+        else return false;
+    }
+    
+    public function deleteRoom($roomID){
+        $result = $this->mysql->query("DELETE FROM Room WHERE idRoom = '$roomID'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
+    
+    public function deleteProperty($propertyID){
+        $result = $this->mysql->query("DELETE FROM Property WHERE idProperty = '$propertyID'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
+    
+    public function deleteConnection($connectionID){
+        $result = $this->mysql->query("DELETE FROM Connection WHERE idConnection = '$connectionID'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
             return false;
         }
     }
