@@ -97,6 +97,7 @@ class DB_Functions {
                 // user authentication details are correct
                 return $result;
             }
+            echo $encrypted_password . ' ' . $hash;
         } else {
             // user not found
             return false;
@@ -202,8 +203,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Room WHERE idRoom = '$roomID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = $result->fetch_array(MYSQLI_ASSOC);
-             return $rows;
+             return true;
         }
         else{
             //user has no homes created
@@ -215,8 +215,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Property WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = $result->fetch_array(MYSQLI_ASSOC);
-             return $rows;
+             return true;
         }
         else{
             //user has no homes created
@@ -228,8 +227,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Connection WHERE idConnection = '$connectionID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = $result->fetch_array(MYSQLI_ASSOC);
-             return $rows;
+             return true;
         }
         else{
             //user has no homes created

@@ -2,6 +2,11 @@ login
 	username
 	password
 
+register
+	username
+	email
+	password
+
 renameProperty
 	propertyID
 	address
