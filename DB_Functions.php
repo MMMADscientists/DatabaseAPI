@@ -202,7 +202,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Room WHERE idRoom = '$roomID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = $this->resultToArray($result);
+             $rows = $result->resultToArray();
              return $rows;
         }
         else{
@@ -215,7 +215,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Property WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = $this->resultToArray($result);
+             $rows = $result->resultToArray();
              return $rows;
         }
         else{
@@ -228,7 +228,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Connection WHERE idConnection = '$connectionID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = $this->resultToArray($result);
+             $rows = $result->resultToArray();
              return $rows;
         }
         else{

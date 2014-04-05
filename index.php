@@ -27,6 +27,9 @@ function errorHandler() {
         print_r($error);
         echo "</pre>";
     }
+    //$response["error"] = 1;
+    //$response["error_msg"] = $error;
+    //echo json_encode($response);
 } 
  
 if (isset($_POST['tag']) && $_POST['tag'] != '' ) {
