@@ -1,3 +1,5 @@
+
+**CREATE NEW THINGS**
 login
 	username
 	password
@@ -6,23 +8,6 @@ register
 	username
 	email
 	password
-
-renameProperty
-	propertyID
-	address
-
-renameRoom
-	roomID
-	roomName
-
-houses
-	username
-
-rooms
-	propertyID
-
-connections
-	roomID
 
 createHouse
 	address
@@ -42,6 +27,18 @@ createConnection
 	doorY
 	doorZ
 
+**FETCH DATA**
+houses
+	username
+
+rooms
+	propertyID
+
+connections
+	roomID
+
+
+**DELETE THINGS**
 deleteProperty
 	propertyID
 
@@ -50,4 +47,31 @@ deleteRoom
 
 deleteConnection
 	connectionID
+
+**UPDATE VALUES**
+renameProperty
+	propertyID
+	address
+
+renameRoom
+	roomID
+	roomName
+
+changeRoomURL
+	roomID
+	newURL
+
+changeConnectionTarget
+	connectionID
+	doorX
+	doorY
+	doorZ
+
+changeHouseURL
+	propertyID
+	newURL
+
+changeHouseDefaultRoom
+	propertyID
+	defaultRoom
 
