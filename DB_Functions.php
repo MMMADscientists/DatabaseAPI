@@ -64,7 +64,7 @@ class DB_Functions {
         $encrypted_password = $hash["encrypted"]; // encrypted password
         $salt = $hash["salt"]; // salt
         //echo PHP_EOL . "INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )";
-        $result = $this->mysql->query("INSERT INTO User(username, password, email, salt) VALUES( '$name', '$password', '$email', '$salt' )");
+        $result = $this->mysql->query("INSERT INTO User(username, password, email, salt) VALUES( '$name', '$encrypted_password', '$email', '$salt' )");
         // check for successful store
         if ($result) {
             // get user details 
@@ -202,7 +202,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Room WHERE idRoom = '$roomID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = fetch_assoc($result);
+             $rows = $result->fetch_array(MYSQLI_ASSOC);
              return $rows;
         }
         else{
@@ -215,7 +215,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Property WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = fetch_assoc($result);
+             $rows = $result->fetch_array(MYSQLI_ASSOC);
              return $rows;
         }
         else{
@@ -228,7 +228,7 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Connection WHERE idConnection = '$connectionID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             $rows = fetch_assoc($result);
+             $rows = $result->fetch_array(MYSQLI_ASSOC);
              return $rows;
         }
         else{
@@ -258,10 +258,10 @@ class DB_Functions {
      */
     public function checkhashSSHA($salt, $password) {
  
-        //$hash = base64_encode(sha1($password . $salt) . $salt);
+        $hash = base64_encode(sha1($password . $salt) . $salt);
  
-        //return $hash;
-        return $password;
+        return $hash;
+        //return $password;
     }
  
 }
