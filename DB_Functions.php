@@ -93,7 +93,7 @@ class DB_Functions {
             $encrypted_password = $result['password'];
             $hash = $this->checkhashSSHA($salt, $password);
             // check for password equality
-            if ($encrypted_password == $hash) {
+            if ($encrypted_password == substr($hash,0,45)) {
                 // user authentication details are correct
                 return $result;
             }
