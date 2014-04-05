@@ -33,7 +33,9 @@ createRoom
 createConnection
 	sourceID
 	destinationID
-	doorPos
+	doorX
+	doorY
+	doorZ
 
 deleteProperty
 	propertyID

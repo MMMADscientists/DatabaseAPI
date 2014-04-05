@@ -315,14 +315,18 @@ else{
         if($post){
             $sourceID = $_POST['sourceID'];
             $destinationID = $_POST['destinationID'];
-            $location = $_POST['doorPos'];
+            $locationX = $_POST['doorX'];
+            $locationY = $_POST['doorY'];
+            $locationZ = $_POST['doorZ'];
         }
         else{
             $sourceID = $_GET['sourceID'];
             $destinationID = $_GET['destinationID'];
-            $location = $_GET['doorPos'];
+            $locationX = $_GET['doorX'];
+            $locationY = $_GET['doorY'];
+            $locationZ = $_GET['doorZ'];
         }
-        $tuples = $db->addConnection($sourceID, $destinationID, $location);
+        $tuples = $db->addConnection($sourceID, $destinationID, $locationX, $locationY, $locationZ);
         if($tuples){
                 $response["success"] = 1;
                 $response["tuples"] = $tuples;

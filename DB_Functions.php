@@ -188,8 +188,8 @@ class DB_Functions {
         }
     }
     
-    public function createConnection($source, $destination, $doorLoc){
-        $result = $this->mysql->query("INSERT INTO Connection(idSource, idDestination, doorLoc) VALUES('$source', '$destination', '$doorLoc')");
+    public function createConnection($source, $destination, $doorX, $doorY, $doorZ){
+        $result = $this->mysql->query("INSERT INTO Connection(idSource, idDestination, doorX, doorY, doorZ) VALUES('$source', '$destination', '$doorX', '$doorY', '$doorZ')");
         if($result){
             $uid = $this->mysql->insert_id; // last inserted id
             $result = $this->mysql->query("SELECT * FROM Connection WHERE idConnection = $uid");
