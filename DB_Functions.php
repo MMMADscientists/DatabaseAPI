@@ -97,7 +97,6 @@ class DB_Functions {
                 // user authentication details are correct
                 return $result;
             }
-            echo $encrypted_password . ' ' . $hash;
         } else {
             // user not found
             return false;
