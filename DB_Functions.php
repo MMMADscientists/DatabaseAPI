@@ -214,7 +214,12 @@ class DB_Functions {
         $result = $this->mysql->query("DELETE FROM Property WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
-             return true;
+             $result2 = $this->mysql->query("DELETE FROM Room WHERE idProperty = '$propertyID'");
+             $no_of_rows = $this->mysql->affected_rows;
+             if($no_of_rows > 0){
+                 return true;
+             }
+             return false;
         }
         else{
             //user has no homes created
