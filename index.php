@@ -285,7 +285,7 @@ else{
         else{
             $propertyID = $_GET['propertyID'];
         }
-        $tuples = $db->deleteRoom($propertyID);
+        $tuples = $db->deleteProperty($propertyID);
         if($tuples){
                 $response["success"] = 1;
                 $response["tuples"] = $tuples;
