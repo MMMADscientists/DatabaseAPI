@@ -202,7 +202,7 @@ else{
             $propertyID = $_GET['propertyID'];
         }
         $tuples = $db->getRoomFromHouse($propertyID);
-        $houseInfo = $db->gethouseData($propertyID);
+        $houseInfo = $db->gethouseDataForRooms($propertyID);
         if($tuples){
              $response["success"] = 1;
              $response["tuples"] = $tuples;
