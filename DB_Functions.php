@@ -132,6 +132,19 @@ class DB_Functions {
         }
     }
     
+    public function gethouseData($propertyID){
+        $result = $this->mysql->query("SELECT * FROM Property WHERE idProperty = '$propertyID'");
+        $no_of_rows = $this->mysql->affected_rows;
+        if($no_of_rows > 0){
+             $rows = $this->resultToArray($result);
+             return $rows;
+        }
+        else{
+            //user has no homes created
+            return false;
+        }
+    }
+    
     public function getRoomFromHouse($propertyID){
         $result = $this->mysql->query("SELECT * FROM Room WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
