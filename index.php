@@ -202,9 +202,11 @@ else{
             $propertyID = $_GET['propertyID'];
         }
         $tuples = $db->getRoomFromHouse($propertyID);
+        $houseInfo = $db->gethouseData($propertyID);
         if($tuples){
              $response["success"] = 1;
              $response["tuples"] = $tuples;
+             $response["houseInfo"] = $houseInfo;
              echo json_encode($response);
          }else{
              $response["error"] = 1;
