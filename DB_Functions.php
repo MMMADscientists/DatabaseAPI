@@ -132,7 +132,7 @@ class DB_Functions {
         }
     }
     
-    public function gethouseData($propertyID){
+    public function gethouseDataForRooms($propertyID){
         $result = $this->mysql->query("SELECT * FROM Property WHERE idProperty = '$propertyID'");
         $no_of_rows = $this->mysql->affected_rows;
         if($no_of_rows > 0){
