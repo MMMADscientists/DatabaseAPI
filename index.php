@@ -407,11 +407,11 @@ else{
     }else if($tag =='changeHouseURL'){
         if($post){
             $propertyID = $_POST['propertyID'];
-            $newURL = $_POST['$newURL'];
+            $newURL = $_POST['newURL'];
         }
         else{
             $propertyID = $_GET['propertyID'];
-            $newURL = $_GET['$newURL'];
+            $newURL = $_GET['newURL'];
         }
         $tuples = $db->changeHouseURL($propertyID, $newURL);
         if($tuples){
