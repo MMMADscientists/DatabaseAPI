@@ -363,7 +363,7 @@ else{
     }else if($tag =='changeRoomURL'){
         if($post){
             $roomID = $_POST['roomID'];
-            $URL = $_POST['$newURL'];
+            $URL = $_POST['newURL'];
         }
         else{
             $roomID = $_GET['roomID'];
@@ -383,15 +383,15 @@ else{
     }else if($tag =='changeConnectionTarget'){
         if($post){
             $connectionID = $_POST['connectionID'];
-            $doorX = $_POST['$doorX'];
-            $doorY = $_POST['$doorY'];
-            $doorZ = $_POST['$doorZ'];
+            $doorX = $_POST['doorX'];
+            $doorY = $_POST['doorY'];
+            $doorZ = $_POST['doorZ'];
         }
         else{
             $connectionID = $_GET['connectionID'];
-            $doorX = $_GET['$doorX'];
-            $doorY = $_GET['$doorY'];
-            $doorZ = $_GET['$doorZ'];
+            $doorX = $_GET['doorX'];
+            $doorY = $_GET['doorY'];
+            $doorZ = $_GET['doorZ'];
         }
         $tuples = $db->changeConnectionTarget($connectionID, $doorX, $doorY, $doorZ);
         if($tuples){
@@ -427,11 +427,11 @@ else{
     }else if($tag =='changeHouseDefaultRoom'){
         if($post){
             $propertyID = $_POST['propertyID'];
-            $defaultRoom = $_POST['$defaultRoom'];
+            $defaultRoom = $_POST['defaultRoom'];
         }
         else{
             $propertyID = $_GET['propertyID'];
-            $defaultRoom = $_GET['$defaultRoom'];
+            $defaultRoom = $_GET['defaultRoom'];
         }
         $tuples = $db->changeHouseDefaultRoom($propertyID, $defaultRoom);
         if($tuples){
