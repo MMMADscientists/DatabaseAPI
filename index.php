@@ -78,6 +78,7 @@ else{
             $response["uid"] = $username["uid"];
             $response["username"]["name"] = $username["username"];
             $response["username"]["email"] = $username["email"];
+            $response['tuples'] = $username;
             //$response["username"]["created_at"] = $username["created_at"];
             //$response["username"]["updated_at"] = $username["updated_at"];
             echo json_encode($response);
@@ -119,6 +120,7 @@ else{
                 $response["uid"] = $username["uid"];
                 $response["username"]["name"] = $username["username"];
                 $response["username"]["email"] = $username["email"];
+                $response['tuples'] = $username;
                 //$response["username"]["created_at"] = $username["created_at"];
                 //$response["username"]["updated_at"] = $username["updated_at"];
                 echo json_encode($response);
