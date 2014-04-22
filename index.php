@@ -446,6 +446,26 @@ else{
                 $response["error_msg"] = "No data found";
                 echo json_encode($response);
         }
+    }else if($tag == 'changeConnectionDestination'){
+        if($post){
+            $connectionID = $_POST['connectionID'];
+            $newDest = $_POST['newDest'];
+        }
+        else{
+            $connectionID = $_POST['connectionID'];
+            $newDest = $_POST['newDest'];
+        }
+        $tuples = $db->changeConnectionDest($connectionID, $newDest);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
     }
     else {
         echo "Invalid Request";
