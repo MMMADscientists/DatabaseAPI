@@ -452,8 +452,8 @@ else{
             $newDest = $_POST['newDest'];
         }
         else{
-            $connectionID = $_POST['connectionID'];
-            $newDest = $_POST['newDest'];
+            $connectionID = $_GET['connectionID'];
+            $newDest = $_GET['newDest'];
         }
         $tuples = $db->changeConnectionDest($connectionID, $newDest);
         if($tuples){
