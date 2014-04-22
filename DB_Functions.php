@@ -276,6 +276,12 @@ class DB_Functions {
         else return false;
     }
     
+    public function changeConnectionDest($connectionID, $newDest){
+        $result = $this->mysql->query("UPDATE Connection SET idDestination = '$newDest' WHERE idConnection = '$connectionID'");
+        if($result) return $result;
+        else return false;
+    }
+    
     
  
     /**
