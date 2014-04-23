@@ -474,9 +474,9 @@ else{
             $propertyID = $_GET['i'];
             $roomID = $_GET['r'];
         }
-        var room_tour = "http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID";
-        document.write("<\x3Cscript src = '" + room+tour + "'><\x3C/script>");
-        //echo "<script src = \"http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID\"></script>";
+        //var room_tour = "http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID";
+        //document.write("<\x3Cscript src = '" + room+tour + "'><\x3C/script>");
+        echo "<script src = \"http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID\"></script>";
     }
     else {
         echo "Invalid Request";
