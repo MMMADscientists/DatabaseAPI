@@ -474,8 +474,8 @@ else{
             $propertyID = $_GET['i'];
             $roomID = $_GET['r'];
         }
-        echo "calling embed_js.php: \"http://54.186.153.0/API/embed_js.php?i='$propertyID'&r='$roomID'\"";
-        echo "<script src = \"http://54.186.153.0/API/embed_js.php?i='$propertyID'&r='$roomID'\"></script>";
+        echo "calling embed_js.php: \"http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID\"";
+        echo "<script src = \"http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID\"></script>";
     }
     else {
         echo "Invalid Request";
