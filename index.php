@@ -466,6 +466,16 @@ else{
                 $response["error_msg"] = "No data found";
                 echo json_encode($response);
         }
+    }else if($tag == 'addConnections'){
+        if($post){
+            $propertyID = $_POST['i'];
+            $roomID = $_POST['r'];
+        }else{
+            $propertyID = $_GET['i'];
+            $roomID = $_GET['r'];
+        }
+        
+        echo "<script src = \"http://54.186.153.0/API/embed_js.php?i='$propertyID'&r='$roomID'\"";
     }
     else {
         echo "Invalid Request";
