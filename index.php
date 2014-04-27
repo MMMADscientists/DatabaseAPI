@@ -477,6 +477,24 @@ else{
         //var room_tour = "http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID";
         //document.write("<\x3Cscript src = '" + room+tour + "'><\x3C/script>");
         echo "<script src = \"http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID\"></script>";
+    }else if($tag == 'connectionInfo'){
+        if($post){
+            $connectionId = $_POST['connectionID'];
+        }
+        else{
+           $connectionId = $_GET['connectionID'];
+        }
+        $tuples = $db->getConnectionInfo($connectionID);
+        if($tuples){
+                $response["success"] = 1;
+                $response["tuples"] = $tuples;
+                echo json_encode($response);
+            }else{
+                $response["error"] = 1;
+                $response["error_code"] = 0;
+                $response["error_msg"] = "No data found";
+                echo json_encode($response);
+        }
     }
     else {
         echo "Invalid Request";
