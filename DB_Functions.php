@@ -283,8 +283,15 @@ class DB_Functions {
     }
     public function getConnectionInfo($connectionID){
          $result = $this->mysql->query("SELECT * FROM Connection WHERE idConnection = '$connectionID'");
-        if($result) return $result;
-        else return false;
+         $no_of_rows = $this->mysql->affected_rows;
+         if($no_of_rows > 0){
+              $rows = $this->resultToArray($result);
+              return $rows;
+         }
+         else{
+            //user has no homes created
+            return false;
+         }
     }
     
     
