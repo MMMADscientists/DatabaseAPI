@@ -281,6 +281,11 @@ class DB_Functions {
         if($result) return $result;
         else return false;
     }
+    public function getConnectionInfo($connectionID){
+         $result = $this->mysql->query("SELECT * FROM Connection WHERE idConnection = '$connectionID'");
+        if($result) return $result;
+        else return false;
+    }
     
     
  
@@ -310,7 +315,6 @@ class DB_Functions {
         return $hash;
         //return $password;
     }
- 
 }
  
 ?>
