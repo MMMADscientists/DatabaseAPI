@@ -479,10 +479,10 @@ else{
         echo "<script src = \"http://54.186.153.0/API/embed_js.php?i=$propertyID&r=$roomID\"></script>";
     }else if($tag == 'connectionInfo'){
         if($post){
-            $connectionId = $_POST['connectionID'];
+            $connectionID = $_POST['connectionID'];
         }
         else{
-           $connectionId = $_GET['connectionID'];
+           $connectionID = $_GET['connectionID'];
         }
         $tuples = $db->getConnectionInfo($connectionID);
         if($tuples){
